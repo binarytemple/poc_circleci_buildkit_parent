@@ -9,6 +9,9 @@ ENV TAG=${tag}
 #RUN apk update && apk add make && rm -rf /var/cache/apk/*
 RUN apk update && apk add openssh git bash && rm -rf /var/cache/apk
 
+RUN git config  --global core.sshCommand "ssh -vvv"
+
+
 COPY mix.lock . 
 COPY mix.exs . 
 
