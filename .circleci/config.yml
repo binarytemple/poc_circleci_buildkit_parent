@@ -21,7 +21,7 @@ jobs:
           name: Build Docker image
           command: DOCKER_BUILDKIT=1 docker build --progress plain --ssh default=${SSH_AUTH_SOCK} -t ${DOCKER_USER}/poc_circleci_buildkit_parent .
       - run: |
-          docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+          echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
           docker push ${DOCKER_USER}/poc_circleci_buildkit_parent
 workflows:
   version: 2
