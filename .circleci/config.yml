@@ -3,8 +3,9 @@ jobs:
   build:
     environment:
       IMAGE_NAME: bryanhuntesl/
-      DOCKER_HUB_TOKEN: ${DOCKER_HUB_TOKEN}
       DOCKER_USER: bryanhuntesl
+      DOCKER_HUB_TOKEN: ${DOCKER_HUB_TOKEN}
+
 
     docker:
       - image: circleci/buildpack-deps:stretch
@@ -22,7 +23,7 @@ jobs:
           name: Build Docker image
           command: DOCKER_BUILDKIT=1 docker build --progress plain --ssh default=${SSH_AUTH_SOCK} -t ${DOCKER_USER}/poc_circleci_buildkit_parent .
       - run: |
-          echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin
+          echo ${DOCKER_HUB_TOKEN} | docker login -u ${DOCKER_USER} --password-stdin
           docker push ${DOCKER_USER}/poc_circleci_buildkit_parent
 workflows:
   version: 2
