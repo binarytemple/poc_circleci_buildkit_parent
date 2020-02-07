@@ -18,7 +18,7 @@ COPY mix.exs .
 
 RUN mkdir -p -m 0600 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-RUN --mount=type=ssh MIX_ENV=prod mix do deps.get, deps.compile 
+RUN --mount=type=ssh mix do deps.get, deps.compile 
 
 COPY lib lib
 
@@ -26,7 +26,7 @@ RUN mix compile
 
 COPY test test 
 
-RUN mix test
+RUN MIX_ENV=test mix do deps.get, test
 
 COPY priv priv 
 
