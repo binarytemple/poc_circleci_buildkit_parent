@@ -9,12 +9,13 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "58:25:b9:3b:e2:7c:46:89:60:26:10:9f:d0:e2:b6:ac"
+            
       - checkout
       - setup_remote_docker:
           version: 18.09.3 
       - run:
           name: Build Docker image
-          command: GIT_SSH_COMMAND="ssh -vvv" DOCKER_BUILDKIT=1 docker build --progress plain --ssh default=${SSH_AUTH_SOCK} . 
+          command: DOCKER_BUILDKIT=1 docker build --progress plain --ssh default=${SSH_AUTH_SOCK} . 
 workflows:
   version: 2
   build-master:
