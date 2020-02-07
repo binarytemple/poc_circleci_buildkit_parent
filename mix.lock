@@ -1,0 +1,4 @@
+%{
+  "poc_circleci_buildkit_child": {:git, "git@github.com:esl/poc_circleci_buildkit_child.git", "6e2c3ae5d528b244ab2edb38fc7c5a2857513e7d", [branch: "master"]},
+  "poc_circleci_buildkit_parent": {:git, "git@github.com:bryanhuntesl/poc_circleci_buildkit_parent.git", "84396e350c4e74ab68254d5cb077f50d5ba2ac10", [branch: "master"]},
+}

@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  build:
+    environment:
+      IMAGE_NAME: bryanhuntesl/poc_circleci_buildkit
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: DOCKER_BUILDKIT=1 docker build --progress plain --ssh default=${SSH_AUTH_SOCK} . 
+workflows:
+  version: 2
+  build-master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
