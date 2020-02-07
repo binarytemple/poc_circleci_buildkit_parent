@@ -16,7 +16,8 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 18.09.3
-          docker_layer_caching: true
+          # enterprise feature - enable if you're enterprise           
+          # docker_layer_caching: true
       - run:
           name: Build Docker image
           command: DOCKER_BUILDKIT=1 docker build --progress plain --ssh default=${SSH_AUTH_SOCK} -t ${DOCKER_USER}/poc_circleci_buildkit_parent .
