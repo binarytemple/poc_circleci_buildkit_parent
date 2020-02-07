@@ -3,8 +3,6 @@ jobs:
   build:
     environment:
       IMAGE_NAME: poc_circleci_buildkit_parent
-      DOCKER_USER: bryanhuntesl
-      DOCKER_HUB_TOKEN: ${DOCKER_HUB_TOKEN}
     docker:
       - image: circleci/buildpack-deps:stretch
     steps:
