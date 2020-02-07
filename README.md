@@ -1,4 +1,4 @@
-# PocCircleciBuildkitParent
+# Proof-of-concept CircleCI with buildkit
 
 The goal is to have a circleci build/docker hub push which :
 
