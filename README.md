@@ -9,7 +9,7 @@ The goal is to have a circleci build/docker hub push which :
 * The build/test/deploy (to local developer machine registry or production GKE registry is identical)
 * Developer can debug and verifiy build locally or just send it to CircleCI (YOLO)
 
-## Initial setup
+## Initial setup
 
 Create parent and child repositories 
 * bryanhuntesl/poc_circleci_buildkit_parent
@@ -35,16 +35,9 @@ Added bryanhuntesl-lowpriv as a collaborator (with read-only access to the esl/p
 ![added keys to low-priv account](images/github/esl-poc_circleci_buildkit_child-collaborators-bryanhuntesl-lowpriv.png) 
 
 
-
-
-
-
-
-
-
 ## Problems
 
-### Default SSH key being in format not understood by ssh-agent 
+### Default SSH key being in format not understood by ssh-agent 
 
 Lot's during setup - the biggest of which was a strange SSH error from `ssh-agent` :
 
