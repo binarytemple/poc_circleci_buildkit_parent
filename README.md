@@ -9,14 +9,14 @@ The goal is to have a circleci build/docker hub push which :
 * The build/test/deploy (to local developer machine registry or production GKE registry is identical)
 * Developer can debug and verifiy build locally or just send it to CircleCI (YOLO)
 
-Initial setup
+## Initial setup
 
 Create parent and child repositories 
 * bryanhuntesl/poc_circleci_buildkit_parent
 * esl/poc_circleci_buildkit_child (private repository)
 
 
-Create low-privelege (read only) user (bryanhuntesl-lowpriv)
+### Create low-privelege (read only) user (bryanhuntesl-lowpriv)
 
 Generate a CircleCI compatible openssh keypair and add to bryanhuntesl-lowpriv Github account :
 
