@@ -44,6 +44,8 @@ Added bryanhuntesl-lowpriv as a collaborator (with read-only access to the esl/p
 
 ## Problems
 
+### Default SSH key being in format not understood by ssh-agent 
+
 Lot's during setup - the biggest of which was a strange SSH error from `ssh-agent` :
 
 "#15 1.649 agent key RSA SHA256:94Pe0skfj2es8n6WGkwBXirHCxWi/44htbEDenxfFco returned incorrect signature type"
