@@ -69,5 +69,7 @@ And the build succeeded - checking out the private git dependency without having
 
 ![Successfully used private keys to build project](images/circle-ci/ssh-key-success.png)
 
+---
 
+Following lines are just to trigger a build
 
