@@ -58,6 +58,6 @@ RUN MIX_ENV=prod mix release
 #
 #LABEL TAG="${TAG}" maintainer="binarytemple"
 #
-#ENTRYPOINT ["/opt/app/bin/foo"]
-#
-CMD ["/bin/bash", "-c", "echo", "hello"]
+ENTRYPOINT ["/bin/bash"]
+
+CMD ["-c", "'echo hello'"]
