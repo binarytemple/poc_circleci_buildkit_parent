@@ -60,4 +60,4 @@ RUN MIX_ENV=prod mix release
 #
 #ENTRYPOINT ["/opt/app/bin/foo"]
 #
-#CMD ["help"]
+CMD ["/bin/bash", "-c", "echo", "hello"]
