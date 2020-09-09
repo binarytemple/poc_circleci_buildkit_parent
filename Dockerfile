@@ -34,30 +34,18 @@ COPY rel rel
 
 RUN MIX_ENV=prod mix release 
 
-#RUN MIX_ENV=prod mix deps.get --only prod && MIX_ENV=prod mix do compile, phx.digest, release
-#RUN MIX_ENV=prod mix deps.get --only prod && MIX_ENV=prod mix do compile, release
-#
-#FROM bitwalker/alpine-elixir:1.7.4 
-#
-#ARG tag="latest"
-#
-#ENV TAG=${tag}
-#
-#RUN apk update && apk add make && rm -rf /var/cache/apk/*
-#
-#COPY --from=builder \
-#    /opt/app/_build/prod/rel/foo/releases/*/foo.tar.gz \
-#    /opt/app/
-#
-#WORKDIR /opt/app
-#
-#RUN tar zxvfp ./foo.tar.gz && \
-#    rm -rf ./foo.tar.gz && \
-#    rm -rf ./.hex && \
-#    rm -rf ./.mix 
-#
-#LABEL TAG="${TAG}" maintainer="binarytemple"
-#
-ENTRYPOINT ["/bin/bash"]
+FROM elixir:1.10.4-alpine AS release
 
-CMD ["-c", "'echo hello'"]
+RUN apk update --no-cache && apk add --no-cache bind-tools
+
+WORKDIR /opt/app
+
+COPY --from=builder \
+  /opt/app/_build/prod/rel .
+  #/opt/app/_build/prod/rel/poc_circleci_buildkit_parent/* .
+ 
+#RUN find /opt/app 
+   
+ENTRYPOINT ["/opt/app/poc_circleci_buildkit_parent/bin/poc_circleci_buildkit_parent"]
+
+CMD ["start_iex"]
